@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIĄŻOWY SPRAWDZACZ</title>
+    <style>
+        body {
+            /* Definiowanie gradientu */
+            background: linear-gradient(to bottom, #ff66b2, #ff3399);
+            /* Inne style dla body */
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: white;
+        }
+        /* Dodatkowe style dla treści na stronie */
+        .content {
+            padding: 50px;
+            max-width: 800px;
+            margin: auto;
+        }
+        /* Stylizacja pola wyszukiwania */
+        input[type="text"] {
+            padding: 10px;
+            font-size: 17px;
+            border: 1px solid grey;
+            width: 60%;
+            background: #f1f1f1;
+            margin: auto;
+            display: block;
+        }
+        /* Stylizacja przycisku Szukaj */
+        input[type="submit"] {
+            width: 20%;
+            padding: 10px;
+            background: #2196F3;
+            color: white;
+            font-size: 17px;
+            border: 1px solid grey;
+            cursor: pointer;
+            margin: auto;
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="submit"]:hover {
+            background: #0b7dda;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="content">
+        <h1>Witaj na mojej stronie!</h1>
+        <h2>Ta strona nazywa się Ciążowy Sprawdzacz i dzięki niej możesz sprawdzić czy możesz jeść określone produkty w ciąży!</h2>
+        <!-- wyszukiwarka -->
+        <form action="search" method="post">
+               <div class="search-container">
+        <input type="text" id="search" name="query" placeholder="Wyszukaj..." style="width: 80%;">
+        <ul id="suggestions"></ul>
+    </div>
+    <script src="script.js"></script>
+
+            <input type="submit" value="Szukaj">
+        </form>
+    </div>
+
+<script>
+$(document).ready(function() {
+    $('#search').on('input', function() {
+        var query = $(this).val();
+        if (query.length > 0) {
+            $.getJSON('/autocomplete', {query: query}, function(data) {
+                var suggestions = data.map(function(item) {
+                    return '<li>' + item + '</li>';
+                });
+                $('#suggestions').html(suggestions.join(''));
+            });
+        } else {
+            $('#suggestions').empty();
+        }
+    });
+});
+</script>
+
+</body>
+</html>
