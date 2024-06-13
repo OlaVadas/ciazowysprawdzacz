@@ -52,5 +52,5 @@ polish_food_list = [
     "jaja kaczki", "jaja przepiórcze", "jaja gęsie", "jaja strusia", "jaja indyka", "kawior",
     "ikra ryb", "ślimak", "żabie udka", "aligator", "krokodyl", "mięso kangura", "mięso wielbłąda",
     "mięso konia", "mięso kozy", "mięso królika", "mięso łosia", "mięso jelenia", "mięso bizona",
-    "dzik", "dzikie indyki", "dziczyzna", "sushi", "surowe jajka", "surowe mieso", "surowe ryby",
+    "dzik", "dzikie indyki", "dziczyzna", "sushi", "surowe jajka", "surowe mieso", "surowe ryby", "ziele dziurawca"
 ]

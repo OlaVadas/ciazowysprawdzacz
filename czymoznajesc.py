@@ -25,9 +25,9 @@ def search():
 @app.route('/autocomplete', methods=['GET'])
 def autocomplete():
     query = request.args.get('query')
-    best_match = process.extractOne(query, listajedzenia.niejescwciazy_uzasadnienie.keys())
+    best_match = process.extractOne(query, czyjestjedzeniem.polish_food_list)
     if 50 > best_match[1]:
-        suggestions = [word for word in listajedzenia.niejescwciazy_uzasadnienie if word.startswith(query)]
+        suggestions = [word for word in czyjestjedzeniem.polish_food_list if word.startswith(query)]
     else:
         suggestions = [best_match[0]]
     return jsonify(suggestions)
