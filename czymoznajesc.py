@@ -13,9 +13,9 @@ def index():
 
 
 
-@app.route('/search', methods=['POST'])
+@app.route('/search', methods=['GET'])
 def search():
-    query = request.form["query"]
+    query = request.args.get('query')
     print(query)
     if query in combined_food_list:
         if query in listajedzenia.niejescwciazy_uzasadnienie:

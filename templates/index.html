@@ -55,7 +55,8 @@
         <h1>Witaj na mojej stronie!</h1>
         <h2>Ta strona nazywa się Ciążowy Sprawdzacz i dzięki niej możesz sprawdzić czy możesz jeść określone produkty w ciąży!</h2>
         <!-- wyszukiwarka -->
-        <form action="search" method="post">
+        <form action="search"
+              onsubmit="location.href = 'search?query='+document.getElementById('search').value; return false">
                <div class="search-container">
         <input type="text" id="search" name="query" placeholder="Wyszukaj..." style="width: 80%;">
         <ul id="suggestions"></ul>
